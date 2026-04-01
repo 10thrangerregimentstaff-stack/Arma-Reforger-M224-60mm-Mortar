@@ -1,0 +1,30 @@
+// M224 60mm White Smoke Shell
+// ─────────────────────────────────────────────────────────────────────────────
+// SETUP REQUIRED IN WORKBENCH:
+//   Inherit from the closest vanilla white smoke mortar shell prefab.
+//   Likely: Prefabs/Weapons/Ammo/Mortars/Grenade_60mm_Smoke_01.et
+//   Keep default white smoke particle.
+//   Ensure there is no blast damage on this round.
+// ─────────────────────────────────────────────────────────────────────────────
+EntityBlueprint {
+ object GenericEntity {
+  components {
+
+   // ── Shell type tag ─────────────────────────────────────────────────────
+   object M224_ShellTypeComponent {
+    m_eShellType 3  // M224_EShellType.SmokeWhite
+   }
+
+   // ── Inventory display ─────────────────────────────────────────────────
+   object InventoryItemComponent {
+    UIInfo {
+     object SCR_UIInfo {
+      Name "M224 Smoke Round (White)"
+      Description "60mm white smoke mortar round for screening and concealment."
+     }
+    }
+   }
+
+  }
+ }
+}

@@ -1,0 +1,6 @@
+MatPBRBasic {
+ SpecularMul 0
+ BCRMap "{8B6E695ABB25E5BF}Textures/M224_BaseMap.edds"
+ OpacityMap "{7F5EF5CFE344A550}Textures/M224_MaskMap.edds"
+ NMOMap "{38E9B7C2427E116E}Textures/M224_Normal.edds"
+}

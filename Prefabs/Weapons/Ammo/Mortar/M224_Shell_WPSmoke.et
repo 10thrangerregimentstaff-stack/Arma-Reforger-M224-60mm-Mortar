@@ -1,0 +1,42 @@
+// M224 60mm WP Smoke Shell (White Phosphorus – thermal / IR blocking)
+// ─────────────────────────────────────────────────────────────────────────────
+// SETUP REQUIRED IN WORKBENCH:
+//   1. Inherit from the vanilla white smoke shell (same as SmokeWhite).
+//   2. Add the M224_WPSmokeShellComponent to this prefab and set:
+//        m_sWPSmokeParticle → your WP smoke .ptc resource path.
+//        m_fSmokeDurationSec → 60 (default).
+//   3. On the linked projectile prefab, add a ParticleEffectEntityComponent
+//      set to your WP particle, triggered on impact.
+//      In the particle editor set at least one emitter's Occluder Type = Smoke
+//      so it blocks thermal / IR vision.
+//   4. No blast damage on this round.
+// ─────────────────────────────────────────────────────────────────────────────
+EntityBlueprint {
+ object GenericEntity {
+  components {
+
+   // ── Shell type tag ─────────────────────────────────────────────────────
+   object M224_ShellTypeComponent {
+    m_eShellType 4  // M224_EShellType.WPSmoke
+   }
+
+   // ── WP smoke effect ────────────────────────────────────────────────────
+   object M224_WPSmokeShellComponent {
+    // TODO: set m_sWPSmokeParticle to the .ptc resource path, e.g.:
+    //   m_sWPSmokeParticle "{XXXXXXXXXXXXXXXX}Particles/M224/WPSmoke.ptc"
+    m_fSmokeDurationSec 60
+   }
+
+   // ── Inventory display ─────────────────────────────────────────────────
+   object InventoryItemComponent {
+    UIInfo {
+     object SCR_UIInfo {
+      Name "M224 WP Smoke Round"
+      Description "60mm white phosphorus smoke round. Blocks thermal and IR optics."
+     }
+    }
+   }
+
+  }
+ }
+}

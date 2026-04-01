@@ -1,0 +1,17 @@
+GenericEntity {
+ ID "AC60B1192DCAA2D2"
+ components {
+  MeshObject "{D692B6B04A5EDE37}" {
+   Object "{53242C1291226932}M720A1MortarRound.xob"
+  }
+  RigidBody "{CCFD09A76E81EADA}" {
+   ModelGeometry 1
+   AngularVelocityDamping 0.9
+  }
+  InventoryItemComponent "{6DC9B54FE426CE52}" {
+  }
+  SCR_EditableEntityComponent "{4D26AC3E61D665F2}" {
+   m_sDisplayName "M720A1 81mm HE Mortar Round"
+  }
+ }
+}

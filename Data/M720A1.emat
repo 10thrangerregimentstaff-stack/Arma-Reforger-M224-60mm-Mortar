@@ -1,0 +1,5 @@
+MatPBRBasic {
+ BCRMap "{34EB63EC5996E4E7}Textures/M720A1_BaseMap.edds"
+ OpacityMap "{C0DBFF7901F7A408}Textures/M720A1_MaskMap.edds"
+ NMOMap "{62FD8DBD43A97E7F}Textures/M720A1_Normal.edds"
+}

@@ -1,0 +1,83 @@
+// Deployed (emplaced) M224 mortar.
+// ─────────────────────────────────────────────────────────────────────────────
+// SETUP REQUIRED IN WORKBENCH:
+//   1. Inherit from (or duplicate) the closest vanilla mortar prefab.
+//      Likely: Prefabs/Weapons/Mortars/Mortar_60mm_US_01.et  (check Resource Browser).
+//      If inheriting, override only the components listed below.
+//   2. Set MeshObject.Object to your deployed M224 model (same .xob or separate
+//      deployed-position model).
+//   3. In M224_DeployMortarAction on M224_Mortar.et, set m_sDeployedPrefab to
+//      this prefab's resource path.
+//   4. In M224_PickUpMortarAction below, set m_sCarriedPrefab to M224_Mortar.et's
+//      resource path.
+// ─────────────────────────────────────────────────────────────────────────────
+EntityBlueprint {
+ object GenericEntity {
+  components {
+
+   // ── Replication node (required for server-spawned entities) ───────────
+   object RplComponent {
+    // Broadcast to all; static once placed.
+   }
+
+   // ── Mesh ──────────────────────────────────────────────────────────────
+   object MeshObject {
+    // TODO: Replace with deployed-position model or same .xob.
+    Object "{00000000000000000000000000000000}Assets/Weapons/M224/M224_Mortar.xob"
+   }
+
+   // ── Static physics (no movement once deployed) ────────────────────────
+   object RigidBody {
+    // Set to static / kinematic so the mortar does not fall over.
+    CollisionLayer EPhysicsLayerDefs.Large
+   }
+
+   // ── Mortar muzzle (shell loading + firing) ────────────────────────────
+   // Inherited from parent mortar prefab.  Keep defaults from parent.
+   object SCR_MortarMuzzleComponent {
+    // Adjust elevation limits for M224 (typical: 45° – 85°).
+    // These match vanilla values; override if needed.
+   }
+
+   // ── M224 round-type selector ──────────────────────────────────────────
+   object M224_RoundSelectorComponent {
+    // Default selection is HE (index 0).
+   }
+
+   // ── M224 auto shell pickup ─────────────────────────────────────────────
+   object M224_ShellAutoPickupComponent {
+   }
+
+   // ── Actions ───────────────────────────────────────────────────────────
+   object ActionsManagerComponent {
+    Actions {
+
+     // Standard mortar shoot action (vanilla – loads shell into barrel).
+     object SCR_MortarShootAction {
+      UIInfo {
+       object SCR_UIInfo {
+        Name "Load Shell"
+        Description "Drop the shell into the barrel."
+       }
+      }
+     }
+
+     // Pick-up action to recover the mortar.
+     object M224_PickUpMortarAction {
+      // TODO: Set m_sCarriedPrefab to the GUID path of M224_Mortar.et, e.g.:
+      //   m_sCarriedPrefab "{XXXXXXXXXXXXXXXX}Prefabs/Weapons/Mortars/M224_Mortar.et"
+      UIInfo {
+       object SCR_UIInfo {
+        Name "Pick Up M224 Mortar"
+        Description "Break down and recover the M224."
+       }
+      }
+      ActionDuration 3.0
+     }
+
+    }
+   }
+
+  }
+ }
+}

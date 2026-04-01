@@ -1,0 +1,31 @@
+// M224 60mm HE Shell
+// ─────────────────────────────────────────────────────────────────────────────
+// SETUP REQUIRED IN WORKBENCH:
+//   Inherit from the closest vanilla 60mm HE mortar shell gadget prefab.
+//   Likely: Prefabs/Weapons/Ammo/Mortars/Grenade_60mm_HE_01.et
+//   (browse Prefabs/Weapons/Ammo/ in Resource Browser to confirm the exact path).
+//
+//   Override components below; keep all other inherited values.
+// ─────────────────────────────────────────────────────────────────────────────
+EntityBlueprint {
+ object GenericEntity {
+  components {
+
+   // ── Shell type tag ─────────────────────────────────────────────────────
+   object M224_ShellTypeComponent {
+    m_eShellType 0  // M224_EShellType.HE
+   }
+
+   // ── Inventory display ─────────────────────────────────────────────────
+   object InventoryItemComponent {
+    UIInfo {
+     object SCR_UIInfo {
+      Name "M224 HE Round"
+      Description "60mm high-explosive mortar round for the M224."
+     }
+    }
+   }
+
+  }
+ }
+}

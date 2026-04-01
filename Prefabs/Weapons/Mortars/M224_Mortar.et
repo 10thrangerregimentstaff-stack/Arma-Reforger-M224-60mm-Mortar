@@ -1,0 +1,56 @@
+// Carried M224 mortar weapon (slung on back as WT_LAUNCHER).
+// ─────────────────────────────────────────────────────────────────────────────
+// SETUP REQUIRED IN WORKBENCH:
+//   1. Right-click → "Inherit" from Prefabs/Weapons/Core/Launcher_Base.et
+//      (or the closest vanilla launcher prefab in your project).
+//   2. Set MeshObject.Object to your custom M224 .xob model path, e.g.:
+//         {XXXXXXXXXXXXXXXX}Assets/Weapons/M224/M224_Mortar.xob
+//   3. The M224_DeployMortarAction component already references
+//      M224_Mortar_Deployed.et – update that ResourceName after the
+//      deployed prefab is registered (see M224_Mortar_Deployed.et).
+//   4. Confirm EWeaponType is WT_LAUNCHER so the weapon slots to the back.
+// ─────────────────────────────────────────────────────────────────────────────
+EntityBlueprint {
+ object GenericEntity {
+  components {
+
+   // ── Mesh ──────────────────────────────────────────────────────────────
+   object MeshObject {
+    // TODO: Replace with your .xob resource path once imported.
+    Object "{00000000000000000000000000000000}Assets/Weapons/M224/M224_Mortar.xob"
+   }
+
+   // ── Inventory item ────────────────────────────────────────────────────
+   object InventoryItemComponent {
+    // WeaponType should match WT_LAUNCHER so the game puts it in the
+    // back weapon slot.  Adjust Size as needed.
+    Size 5
+   }
+
+   // ── Physics ───────────────────────────────────────────────────────────
+   object RigidBody {
+    // Carried – physics enabled while on the ground / dropped.
+    AngularVelocityDamping 0.9
+   }
+
+   // ── Actions ───────────────────────────────────────────────────────────
+   object ActionsManagerComponent {
+    Actions {
+     object M224_DeployMortarAction {
+      // TODO: Set m_sDeployedPrefab to the GUID path of M224_Mortar_Deployed.et
+      // once the prefab is registered in Workbench, e.g.:
+      //   m_sDeployedPrefab "{XXXXXXXXXXXXXXXX}Prefabs/Weapons/Mortars/M224_Mortar_Deployed.et"
+      UIInfo {
+       object SCR_UIInfo {
+        Name "Deploy M224 Mortar"
+        Description "Set up the M224 60mm mortar for firing."
+       }
+      }
+      ActionDuration 2.5
+     }
+    }
+   }
+
+  }
+ }
+}

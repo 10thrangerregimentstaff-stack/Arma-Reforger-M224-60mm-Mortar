@@ -1,0 +1,31 @@
+// M224 60mm High-Lethality HE Shell
+// ─────────────────────────────────────────────────────────────────────────────
+// SETUP REQUIRED IN WORKBENCH:
+//   Inherit from M224_Shell_HE.et (or the same vanilla HE base).
+//   In the ProjectileComponent (or ArmorDamageManager), increase:
+//     - BlastRadius (e.g. +20 %)
+//     - BlastDamage multiplier
+//   These values live on the projectile prefab, not the gadget.
+// ─────────────────────────────────────────────────────────────────────────────
+EntityBlueprint {
+ object GenericEntity {
+  components {
+
+   // ── Shell type tag ─────────────────────────────────────────────────────
+   object M224_ShellTypeComponent {
+    m_eShellType 1  // M224_EShellType.HighLethality
+   }
+
+   // ── Inventory display ─────────────────────────────────────────────────
+   object InventoryItemComponent {
+    UIInfo {
+     object SCR_UIInfo {
+      Name "M224 High-Lethality HE Round"
+      Description "60mm high-lethality mortar round with increased blast radius."
+     }
+    }
+   }
+
+  }
+ }
+}

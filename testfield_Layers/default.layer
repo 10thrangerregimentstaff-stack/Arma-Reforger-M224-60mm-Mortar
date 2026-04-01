@@ -1,0 +1,18 @@
+$grp ParticleEffectEntity {
+ {
+  coords 122.032 2.097 128.816
+  angles 14.677 0 0
+  EffectPath "{3CE0DF2EE7CE5F6D}Particles/Weapon/Muzzle_m224.ptc"
+ }
+ {
+  coords 120.332 1 99.881
+  EffectPath "{03F90C10A7322DA7}Particles/Weapon/Blast_Mortar_Dirt.ptc"
+ }
+ {
+  coords 128.74 1 76.135
+  EffectPath "{1690EDDE558EF3FC}Particles/Weapon/Blast_M224_Dirt.ptc"
+ }
+}
+Turret : "{F7CAA36333A06540}Prefabs/Weapons/Mortars/M252/m224_test.et" {
+ coords 122.032 1 129.064
+}

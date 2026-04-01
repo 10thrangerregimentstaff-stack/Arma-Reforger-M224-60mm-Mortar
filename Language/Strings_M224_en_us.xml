@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<table>
+  <!-- M224 Input Action display names (shown in Key Bindings menu) -->
+  <key id="AR-M224_SelectHE_Name">Select HE Round</key>
+  <key id="AR-M224_SelectHE_Desc">Select the M224 High-Explosive mortar round.</key>
+
+  <key id="AR-M224_SelectHL_Name">Select High-Lethality Round</key>
+  <key id="AR-M224_SelectHL_Desc">Select the M224 High-Lethality HE mortar round.</key>
+
+  <key id="AR-M224_SelectSmokeRed_Name">Select Red Smoke Round</key>
+  <key id="AR-M224_SelectSmokeRed_Desc">Select the M224 Red Smoke mortar round.</key>
+
+  <key id="AR-M224_SelectSmokeWhite_Name">Select White Smoke Round</key>
+  <key id="AR-M224_SelectSmokeWhite_Desc">Select the M224 White Smoke mortar round.</key>
+
+  <key id="AR-M224_SelectWPSmoke_Name">Select WP Smoke Round</key>
+  <key id="AR-M224_SelectWPSmoke_Desc">Select the M224 White Phosphorus smoke round (blocks thermal/IR).</key>
+</table>

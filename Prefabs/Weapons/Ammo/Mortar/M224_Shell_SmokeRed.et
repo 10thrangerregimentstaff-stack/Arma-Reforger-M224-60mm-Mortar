@@ -1,0 +1,30 @@
+// M224 60mm Red Smoke Shell
+// ─────────────────────────────────────────────────────────────────────────────
+// SETUP REQUIRED IN WORKBENCH:
+//   Inherit from the closest vanilla smoke mortar shell prefab.
+//   Likely: Prefabs/Weapons/Ammo/Mortars/Grenade_60mm_Smoke_01.et
+//   Override the projectile's smoke particle to use a red smoke effect.
+//   Ensure there is no blast damage on this round.
+// ─────────────────────────────────────────────────────────────────────────────
+EntityBlueprint {
+ object GenericEntity {
+  components {
+
+   // ── Shell type tag ─────────────────────────────────────────────────────
+   object M224_ShellTypeComponent {
+    m_eShellType 2  // M224_EShellType.SmokeRed
+   }
+
+   // ── Inventory display ─────────────────────────────────────────────────
+   object InventoryItemComponent {
+    UIInfo {
+     object SCR_UIInfo {
+      Name "M224 Smoke Round (Red)"
+      Description "60mm red smoke mortar round for marking and screening."
+     }
+    }
+   }
+
+  }
+ }
+}
